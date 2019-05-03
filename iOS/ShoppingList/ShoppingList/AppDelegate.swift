@@ -16,6 +16,7 @@ import Firebase
 
 
 let defaults = UserDefaults.standard
+let pushNotifications = PushNotifications.shared
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -27,9 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         FirebaseApp.configure()
         
+        pushNotifications.start(instanceId: "bb89aef7-6df4-4639-9cde-40f268fa5498")
+        pushNotifications.registerForRemoteNotifications()
+        try? pushNotifications.addDeviceInterest(interest: "hello")
         
-        PushNotifications.shared.start(instanceId: "1c17ef2c-92ea-486e-af1b-7bc8faa62607")
-        PushNotifications.shared.registerForRemoteNotifications()
+//        PushNotifications.shared.start(instanceId: "1c17ef2c-92ea-486e-af1b-7bc8faa62607")
+//        PushNotifications.shared.registerForRemoteNotifications()
 
         UNUserNotificationCenter.current().delegate = self
       //  try? self.pushNotifications.subscribe(interest: "group-103")
@@ -56,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken : Data) {
-        PushNotifications.shared.registerDeviceToken(deviceToken)
+        pushNotifications.registerDeviceToken(deviceToken)
         print(deviceToken)
     }
     
@@ -65,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         didReceiveRemoteNotification userInfo: [AnyHashable: Any],
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
     ) {
-        PushNotifications.shared.handleNotification(userInfo: userInfo)
+        pushNotifications.handleNotification(userInfo: userInfo)
         print(userInfo)
         completionHandler(.newData)
     }
