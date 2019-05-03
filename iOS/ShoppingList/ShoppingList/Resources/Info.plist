@@ -2,14 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>&quot;We need access to your photos to update your profile picture&quot; </string>
 	<key>Allow Arbitrary Loads</key>
 	<string>YES</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>ShopTrak</string>
+	<string>FairShare</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -25,22 +23,26 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
 			<key>CFBundleURLName</key>
-			<string>com.netlify.labs10-shopping-list-iOS</string>
+			<string>auth0</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.netlify.labs10-shopping-list-iOS</string>
+				<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>NSCameraUsageDescription</key>
-	<string>We need to access your camera for scanning QR code</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict/>
+	<key>NSCameraUsageDescription</key>
+	<string>We need to access your camera for scanning QR code</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to your photos to update your profile picture</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
