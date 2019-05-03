@@ -23,25 +23,47 @@ class LoginViewController: UIViewController, StoryboardInstantiatable {
     @IBAction func loginButtonPressed(_ sender: Any) {
         showLogin()
     }
-
+    
     func showLogin() {
+        guard let clientInfo = plistValues(bundle: Bundle.main) else { return }
         Auth0
             .webAuth()
-            .audience("https://shoptrak.auth0.com/api/v2/")
-            .scope("openid profile email")
+            .scope("openid profile")
+            .audience("https://" + clientInfo.domain + "/userinfo")
             .start {
                 switch $0 {
                 case .failure(let error):
-                    print("Error showing login: \(error)")
+                    print("Error: \(error)")
                 case .success(let credentials):
-                    guard let accessToken = credentials.accessToken, let idToken = credentials.idToken else { return }
+                    guard let accessToken = credentials.accessToken,
+                        let idToken = credentials.idToken else { return }
+                    
                     SessionManager.tokens = Tokens(accessToken: accessToken, idToken: idToken)
                     UI {
                         UIApplication.shared.keyWindow?.rootViewController = MainViewController.instantiate()
                     }
                 }
         }
+    }
+    
+    func plistValues(bundle: Bundle) -> (clientId: String, domain: String)? {
+        guard
+            let path = bundle.path(forResource: "Auth0", ofType: "plist"),
+            let values = NSDictionary(contentsOfFile: path) as? [String: Any]
+            else {
+                print("Missing Auth0.plist file with 'ClientId' and 'Domain' entries in main bundle!")
+                return nil
+        }
         
+        guard
+            let clientId = values["ClientId"] as? String,
+            let domain = values["Domain"] as? String
+            else {
+                print("Auth0.plist file at \(path) is missing 'ClientId' and/or 'Domain' entries!")
+                print("File currently has the following entries: \(values)")
+                return nil
+        }
+        return (clientId: clientId, domain: domain)
     }
 }
 
