@@ -294,8 +294,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About ShopTrak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GT1-d8-PGy">
-                                                    <rect key="frame" x="63.000000000000007" y="16.666666666666668" width="127.66666666666669" height="21.000000000000004"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Fairshare" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GT1-d8-PGy">
+                                                    <rect key="frame" x="63.000000000000007" y="16.666666666666668" width="126.66666666666669" height="21.000000000000004"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.35649984140000002" green="0.35649984140000002" blue="0.35649984140000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
@@ -472,7 +472,7 @@
             </objects>
             <point key="canvasLocation" x="1824.8" y="142.61083743842366"/>
         </scene>
-        <!--About ShopTrak-->
+        <!--About Fairshare-->
         <scene sceneID="0Ig-gZ-ieu">
             <objects>
                 <tableViewController id="vr6-nD-G5V" customClass="AboutShopTrakTableViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
@@ -497,8 +497,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p91-rT-8YH">
-                                                    <rect key="frame" x="36" y="65.666666666666671" width="303" height="122.00000000000001"/>
-                                                    <string key="text">ShopTrak is a hybrid web &amp; iOS app made for Lambda Labs by Nikita Thomas, Yvette Zhukovsky, Jason Modisett, Adam Reid, Alex Carter, Jeremy Boggs, Kevin Nguyen, and Sean Won.</string>
+                                                    <rect key="frame" x="36" y="35.333333333333329" width="303" height="182.66666666666669"/>
+                                                    <string key="text">Fairshare is a hybrid web &amp; iOS app made for Lambda Labs by Jason Modisett, Ilqar Ilyasov, Nikita Thomas, Yvette Zhukovsky, Adam Reid, Adalberto May, Alex Carter, Estevan Rodriguez, Jeremy Boggs, Joseph Chretien-Golden, Itel Domingo, Kevin Nguyen, Sean Won, Tsai Huang.</string>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.5782439721" green="0.5782439721" blue="0.5782439721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
@@ -640,7 +640,7 @@
                             <outlet property="delegate" destination="vr6-nD-G5V" id="964-pk-CgL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="About ShopTrak" id="nYY-X6-weJ">
+                    <navigationItem key="navigationItem" title="About Fairshare" id="nYY-X6-weJ">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="f0P-qX-ccq">
                             <connections>
                                 <action selector="doneButtonPressed:" destination="vr6-nD-G5V" id="Lgm-00-uGE"/>
